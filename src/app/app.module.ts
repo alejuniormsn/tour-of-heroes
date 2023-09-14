@@ -7,9 +7,15 @@ import { FormsModule } from '@angular/forms';
 import { HeroDetailsComponent } from './hero-details/hero-details.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { MessagesComponent } from './messages/messages.component';
 
 @NgModule({
-  declarations: [AppComponent, HeroesComponent, HeroDetailsComponent],
+  declarations: [
+    AppComponent,
+    HeroesComponent,
+    HeroDetailsComponent,
+    MessagesComponent,
+  ],
   imports: [
     BrowserModule,
     FormsModule,
