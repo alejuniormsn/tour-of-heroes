@@ -1,10 +1,16 @@
-<div *ngIf="hero">
-  <div><span>Details: </span>{{ hero.name | uppercase }}</div>
+<div *ngIf="hero" style="margin-bottom: 16px">
+  <div>
+    <span>Details: </span>
+    <h1>{{ hero.name | uppercase }}</h1>
+  </div>
   <div><span>id: </span>{{ hero.id }}</div>
   <div><span>name: </span>{{ hero.name }}</div>
 
-  <div>
+  <div style="margin-bottom: 8px">
     <label for="name">alter hero name: </label>
     <input id="name" [(ngModel)]="hero.name" type="text" placeholder="name" />
+  </div>
+  <div>
+    <button mat-raised-button (click)="goBack()">Go back</button>
   </div>
 </div>

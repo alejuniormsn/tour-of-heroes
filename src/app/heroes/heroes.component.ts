@@ -11,7 +11,6 @@ export class HeroesComponent implements OnInit {
   constructor(private heroService: HeroService) {}
 
   heroes!: Hero[];
-  selectedHero!: Hero;
 
   ngOnInit(): void {
     this.getHeroes();
@@ -23,9 +22,5 @@ export class HeroesComponent implements OnInit {
       error: (err) => console.error('Observer got an error: ' + err),
       // complete: () => console.log('Complete...'),
     });
-  }
-
-  onSelect(hero: Hero): void {
-    this.selectedHero = hero;
   }
 }

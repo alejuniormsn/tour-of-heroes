@@ -8,6 +8,14 @@ import { HeroDetailsComponent } from './hero-details/hero-details.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MessagesComponent } from './messages/messages.component';
+import { MatButtonModule } from '@angular/material/button';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { AppRoutingModule } from './app-routing.module';
+import { MatIconModule } from '@angular/material/icon';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { MatCardModule } from '@angular/material/card';
 
 @NgModule({
   declarations: [
@@ -15,12 +23,20 @@ import { MessagesComponent } from './messages/messages.component';
     HeroesComponent,
     HeroDetailsComponent,
     MessagesComponent,
+    DashboardComponent,
   ],
   imports: [
     BrowserModule,
     FormsModule,
     BrowserAnimationsModule,
     MatToolbarModule,
+    MatButtonModule,
+    MatExpansionModule,
+    MatIconModule,
+    AppRoutingModule,
+    FlexLayoutModule,
+    MatTooltipModule,
+    MatCardModule,
   ],
   exports: [],
   providers: [],
