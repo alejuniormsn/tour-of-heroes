@@ -1,16 +1,22 @@
 <div *ngIf="hero" style="margin-bottom: 16px">
-  <div>
-    <span>Details: </span>
-    <h1>{{ hero.name | uppercase }}</h1>
-  </div>
-  <div><span>id: </span>{{ hero.id }}</div>
-  <div><span>name: </span>{{ hero.name }}</div>
+  <mat-card>
+    <mat-card-header style="margin-bottom: 8px">
+      <mat-card-title>{{ hero.name | uppercase }}</mat-card-title>
+    </mat-card-header>
 
-  <div style="margin-bottom: 8px">
-    <label for="name">alter hero name: </label>
-    <input id="name" [(ngModel)]="hero.name" type="text" placeholder="name" />
-  </div>
-  <div>
-    <button mat-raised-button (click)="goBack()">Go back</button>
-  </div>
+    <mat-card-content fxLayout="column">
+      <mat-form-field>
+        <mat-label>ID</mat-label>
+        <input matInput disabled [value]="hero.id" />
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Hero name</mat-label>
+        <input matInput [(ngModel)]="hero.name" placeholder="Name" />
+      </mat-form-field>
+
+      <mat-card-actions style="padding: 0">
+        <button mat-raised-button (click)="goBack()">Go back</button>
+      </mat-card-actions>
+    </mat-card-content>
+  </mat-card>
 </div>
