@@ -1,5 +1,7 @@
 <app-toolbar [title]="title" />
-<div class="content">
+<div
+  style="display: flex; flex-direction: column; max-width: 800px; margin: 32px"
+>
   <router-outlet></router-outlet>
   <app-messages />
 </div>

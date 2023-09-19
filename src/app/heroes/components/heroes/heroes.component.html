@@ -1,0 +1,20 @@
+<div fxLayout.xs="column">
+  <h1>My Heroes</h1>
+  <mat-table [dataSource]="heroes" class="table" class="mat-elevation-z8">
+    <ng-container matColumnDef="id">
+      <mat-header-cell *matHeaderCellDef>ID</mat-header-cell>
+      <mat-cell *matCellDef="let item">{{ item.id }}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="name">
+      <mat-header-cell *matHeaderCellDef>Hero name</mat-header-cell>
+      <mat-cell *matCellDef="let item">{{ item.name }}</mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="['id', 'name']"></mat-header-row>
+    <mat-row
+      class="mat-row"
+      *matRowDef="let item; columns: ['id', 'name']"
+      routerLink="/heroes/{{ item.id }}"
+    ></mat-row>
+  </mat-table>
+</div>

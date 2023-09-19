@@ -1,19 +1,12 @@
 import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
-import { HeroesComponent } from './heroes/heroes.component';
-import { HeroDetailsComponent } from './hero-details/hero-details.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
-
 import { CoreModule } from './core/core.module';
+import { DashboardModule } from './dashboard/dashboard.module';
+import { HeroesModule } from './heroes/heroes.module';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    HeroesComponent,
-    HeroDetailsComponent,
-    DashboardComponent,
-  ],
-  imports: [CoreModule],
+  declarations: [AppComponent],
+  imports: [CoreModule, DashboardModule, HeroesModule],
   providers: [],
   bootstrap: [AppComponent],
 })
