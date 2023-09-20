@@ -3,18 +3,18 @@ import { CommonModule } from '@angular/common';
 import { HeroDetailsComponent } from './components/hero-details/hero-details.component';
 import { HeroesComponent } from './components/heroes/heroes.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
-import { RouterModule } from '@angular/router';
 import { MaterialModule } from '../material/material.module';
 import { FormsModule } from '@angular/forms';
+import { HeroesRoutingModule } from './heroes-routing.module';
 
 @NgModule({
   declarations: [HeroesComponent, HeroDetailsComponent],
   imports: [
     CommonModule,
+    FlexLayoutModule,
     FormsModule,
     MaterialModule,
-    RouterModule,
-    FlexLayoutModule,
+    HeroesRoutingModule,
   ],
 })
 export class HeroesModule {}

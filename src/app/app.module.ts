@@ -1,12 +1,11 @@
 import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
-import { DashboardModule } from './dashboard/dashboard.module';
-import { HeroesModule } from './heroes/heroes.module';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [CoreModule, DashboardModule, HeroesModule],
+  imports: [CoreModule, AppRoutingModule],
   providers: [],
   bootstrap: [AppComponent],
 })
