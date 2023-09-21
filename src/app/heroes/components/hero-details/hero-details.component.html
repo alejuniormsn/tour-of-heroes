@@ -15,6 +15,15 @@
       </mat-form-field>
 
       <mat-card-actions style="padding: 0">
+        <button
+          mat-raised-button
+          color="primary"
+          [disabled]="!hero.name.trim()"
+          (click)="save()"
+          style="margin-right: 16px"
+        >
+          Save
+        </button>
         <button mat-raised-button (click)="goBack()">Go back</button>
       </mat-card-actions>
     </mat-card-content>

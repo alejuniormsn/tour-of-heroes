@@ -21,16 +21,23 @@ export class HeroDetailsComponent implements OnInit {
     this.getHero();
   }
 
-  goBack() {
+  goBack(): void {
     this.location.back();
   }
 
-  getHero() {
+  getHero(): void {
     const id = Number(this.route.snapshot.paramMap.get('id'));
-    this.heroService.getHero(id).subscribe({
+    this.heroService.getOne(id).subscribe({
       next: (data) => (this.hero = data),
       error: (err) => console.error('Observer got an error: ' + err),
       // complete: () => console.log('Complete...'),
+    });
+  }
+
+  save(): void {
+    this.heroService.update(this.hero).subscribe({
+      next: () => this.goBack(),
+      error: (err) => console.error('Observer got an error: ' + err),
     });
   }
 }

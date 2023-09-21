@@ -16,7 +16,7 @@ export class HeroService {
 
   private heroesUrl = `${environment.baseUrl}/heroes`;
 
-  getHeroes(): Observable<Hero[]> {
+  getAll(): Observable<Hero[]> {
     return this.http
       .get<Hero[]>(this.heroesUrl)
       .pipe(
@@ -28,13 +28,25 @@ export class HeroService {
       );
   }
 
-  getHero(id: number): Observable<Hero> {
+  getOne(id: number): Observable<Hero> {
     return this.http
       .get<Hero>(`${this.heroesUrl}/${id}`)
       .pipe(
         tap((hero) =>
           this.messageService.add(
             `HeroesService: fetched hero id = ${hero.id} and hero name = ${hero.name}`
+          )
+        )
+      );
+  }
+
+  update(hero: Hero): Observable<Hero> {
+    return this.http
+      .put<Hero>(`${this.heroesUrl}/${hero.id}`, hero)
+      .pipe(
+        tap((hero) =>
+          this.messageService.add(
+            `HeroesService: updated hero id = ${hero.id} and hero name = ${hero.name}`
           )
         )
       );
