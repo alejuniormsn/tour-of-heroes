@@ -1,37 +1,25 @@
-<div *ngIf="hero" fxLayout.xs="column">
+<div fxLayout.xs="column">
   <mat-card>
     <mat-card-header style="margin-bottom: 8px">
-      <mat-card-title>{{ hero.name | uppercase }}</mat-card-title>
+      <mat-card-title>Create your new hero</mat-card-title>
     </mat-card-header>
 
     <mat-card-content fxLayout="column">
       <mat-form-field>
-        <mat-label>ID</mat-label>
-        <input matInput disabled [value]="hero.id" />
-      </mat-form-field>
-      <mat-form-field>
-        <mat-label>Hero name</mat-label>
+        <mat-label>My hero name</mat-label>
         <input matInput [(ngModel)]="hero.name" placeholder="Name" />
       </mat-form-field>
 
       <mat-card-actions style="padding: 0; justify-content: space-between">
         <button mat-raised-button (click)="goBack()">Go back</button>
-        <div fxLayoutGap="16px">
-          <button
-            mat-raised-button
-            color="warn"
-            [disabled]="!hero.name.trim()"
-            (click)="delete()"
-          >
-            Delete
-          </button>
+        <div>
           <button
             mat-raised-button
             color="primary"
             [disabled]="!hero.name.trim()"
-            (click)="update()"
+            (click)="create()"
           >
-            Save
+            Add
           </button>
         </div>
       </mat-card-actions>

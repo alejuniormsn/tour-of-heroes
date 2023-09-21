@@ -19,7 +19,7 @@ export class HeroesComponent implements OnInit {
   getHeroes(): void {
     this.heroService.getAll().subscribe({
       next: (data) => (this.heroes = data),
-      error: (err) => console.error('Observer got an error: ' + err),
+      error: (err) => console.error('Observer getAll got an error: ' + err),
       // complete: () => console.log('Complete...'),
     });
   }

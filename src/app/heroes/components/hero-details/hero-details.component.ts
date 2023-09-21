@@ -1,6 +1,5 @@
 import { HeroService } from '../../../core/services/hero.service';
 import { Component, OnInit } from '@angular/core';
-import { Location } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
 import { Hero } from '../../../core/models/hero.model';
 
@@ -11,33 +10,41 @@ import { Hero } from '../../../core/models/hero.model';
 export class HeroDetailsComponent implements OnInit {
   constructor(
     private heroService: HeroService,
-    private location: Location,
     private route: ActivatedRoute
   ) {}
 
   hero!: Hero;
 
   ngOnInit(): void {
-    this.getHero();
+    this.getOne();
   }
 
-  goBack(): void {
-    this.location.back();
+  goBack() {
+    this.heroService.goBack();
   }
 
-  getHero(): void {
+  getOne(): void {
     const id = Number(this.route.snapshot.paramMap.get('id'));
     this.heroService.getOne(id).subscribe({
       next: (data) => (this.hero = data),
-      error: (err) => console.error('Observer got an error: ' + err),
+      error: () => this.goBack(),
       // complete: () => console.log('Complete...'),
     });
   }
 
-  save(): void {
+  update(): void {
     this.heroService.update(this.hero).subscribe({
       next: () => this.goBack(),
-      error: (err) => console.error('Observer got an error: ' + err),
+      error: (err) =>
+        console.error('Observer update hero got an error: ' + err),
+    });
+  }
+
+  delete(): void {
+    this.heroService.delete(this.hero).subscribe({
+      next: () => this.goBack(),
+      error: (err) =>
+        console.error('Observer update hero got an error: ' + err),
     });
   }
 }

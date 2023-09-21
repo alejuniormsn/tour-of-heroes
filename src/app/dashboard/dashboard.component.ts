@@ -18,7 +18,7 @@ export class DashboardComponent implements OnInit {
   getHeroes() {
     this.heroService.getAll().subscribe({
       next: (data) => (this.heroes = data.slice(0, 4)),
-      error: (err) => console.error('Observer got an error: ' + err),
+      error: (err) => console.error('Observer getAll got an error: ' + err),
       // complete: () => console.log('Complete...'),
     });
   }

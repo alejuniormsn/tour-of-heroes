@@ -6,9 +6,10 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { MaterialModule } from '../material/material.module';
 import { FormsModule } from '@angular/forms';
 import { HeroesRoutingModule } from './heroes-routing.module';
+import { HeroCreateComponent } from './components/hero-create/hero-create.component';
 
 @NgModule({
-  declarations: [HeroesComponent, HeroDetailsComponent],
+  declarations: [HeroesComponent, HeroDetailsComponent, HeroCreateComponent],
   imports: [
     CommonModule,
     FlexLayoutModule,
