@@ -8,7 +8,7 @@ import { MessageService } from './../../services/message.service';
 export class MessagesComponent {
   constructor(public messageService: MessageService) {}
 
-  onAction() {
+  clearMessages() {
     this.messageService.clear();
   }
 }
