@@ -5,6 +5,7 @@ import { MessageService } from './message.service';
 import { HttpClient } from '@angular/common/http';
 import { Location } from '@angular/common';
 import { environment } from 'src/environments/environment';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Injectable({
   providedIn: 'root',
@@ -13,13 +14,21 @@ export class HeroService {
   constructor(
     private http: HttpClient,
     private location: Location,
-    private messageService: MessageService
+    private messageService: MessageService,
+    private snack: MatSnackBar
   ) {}
 
   private heroUrl = `${environment.baseUrl}/heroes`;
 
   goBack(): void {
     this.location.back();
+  }
+
+  showErrorMsg(msg?: string): void {
+    this.snack.open(msg ? msg : 'Please check the form for errors.', 'OK', {
+      duration: 2500,
+      verticalPosition: 'top',
+    });
   }
 
   getAll(): Observable<Hero[]> {
@@ -48,7 +57,7 @@ export class HeroService {
 
   update(hero: Hero): Observable<Hero> {
     return this.http
-      .put<Hero>(`${this.heroUrl}/${hero.id}`, hero)
+      .put<Hero>(`${this.heroUrl}/${hero.id}`, hero.name)
       .pipe(
         tap((hero) =>
           this.messageService.add(
@@ -58,9 +67,9 @@ export class HeroService {
       );
   }
 
-  create(hero: string): Observable<Hero> {
+  create(hero: Hero): Observable<Hero> {
     return this.http
-      .post<Hero>(`${this.heroUrl}`, { name: hero })
+      .post<Hero>(`${this.heroUrl}`, { name: hero.name })
       .pipe(
         tap((hero) =>
           this.messageService.add(
@@ -70,9 +79,9 @@ export class HeroService {
       );
   }
 
-  delete(hero: Hero): Observable<Hero> {
+  delete(hero: Hero): Observable<any> {
     return this.http
-      .delete<Hero>(`${this.heroUrl}/${hero.id}`)
+      .delete<any>(`${this.heroUrl}/${hero.id}`)
       .pipe(
         tap(() =>
           this.messageService.add(

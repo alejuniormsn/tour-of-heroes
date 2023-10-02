@@ -4,18 +4,18 @@ import { HeroDetailsComponent } from './components/hero-details/hero-details.com
 import { HeroesComponent } from './components/heroes/heroes.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MaterialModule } from '../material/material.module';
-import { FormsModule } from '@angular/forms';
 import { HeroesRoutingModule } from './heroes-routing.module';
 import { HeroCreateComponent } from './components/hero-create/hero-create.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [HeroesComponent, HeroDetailsComponent, HeroCreateComponent],
   imports: [
     CommonModule,
     FlexLayoutModule,
-    FormsModule,
     MaterialModule,
     HeroesRoutingModule,
+    ReactiveFormsModule,
   ],
 })
 export class HeroesModule {}

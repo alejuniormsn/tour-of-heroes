@@ -1,42 +1,40 @@
 <div *ngIf="hero">
-  <mat-card>
-    <mat-card-header>
-      <mat-card-title>{{ hero.name | uppercase }}</mat-card-title>
-    </mat-card-header>
+  <form [formGroup]="form" novalidate>
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>{{ hero.name | uppercase }}</mat-card-title>
+      </mat-card-header>
 
-    <mat-card-content fxLayout="column">
-      <mat-form-field>
-        <mat-label>ID</mat-label>
-        <input matInput disabled [value]="hero.id" />
-      </mat-form-field>
-      <mat-form-field>
-        <mat-label>Hero name</mat-label>
-        <input matInput [(ngModel)]="hero.name" placeholder="Name" />
-      </mat-form-field>
+      <mat-card-content fxLayout="column">
+        <mat-form-field>
+          <mat-label>ID</mat-label>
+          <input matInput formControlName="id" />
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Hero name</mat-label>
+          <input matInput formControlName="name" placeholder="Name" />
+          <mat-error *ngIf="form.controls['name'].hasError('required')">
+            Name is required
+          </mat-error>
+          <mat-error *ngIf="form.controls['name'].hasError('minlength')">
+            Name should contain at least 3 characters.
+          </mat-error>
+        </mat-form-field>
 
-      <mat-card-actions style="padding: 0; justify-content: space-between">
-        <div>
-          <button mat-raised-button (click)="goBack()">Go back</button>
-        </div>
-        <div fxLayoutGap="16px">
-          <button
-            mat-raised-button
-            color="primary"
-            [disabled]="!hero.name.trim()"
-            (click)="update()"
-          >
-            Update
-          </button>
-          <button
-            mat-raised-button
-            color="warn"
-            [disabled]="!hero.name.trim()"
-            (click)="delete()"
-          >
-            Delete
-          </button>
-        </div>
-      </mat-card-actions>
-    </mat-card-content>
-  </mat-card>
+        <mat-card-actions style="padding: 0; justify-content: space-between">
+          <div>
+            <button mat-raised-button (click)="goBack()">Go back</button>
+          </div>
+          <div fxLayoutGap="16px">
+            <button mat-raised-button color="primary" (click)="update()">
+              Update
+            </button>
+            <button mat-raised-button color="warn" (click)="delete(hero)">
+              Delete
+            </button>
+          </div>
+        </mat-card-actions>
+      </mat-card-content>
+    </mat-card>
+  </form>
 </div>

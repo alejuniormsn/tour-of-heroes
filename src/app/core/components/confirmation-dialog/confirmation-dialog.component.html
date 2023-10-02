@@ -1,0 +1,16 @@
+<mat-dialog-content>
+  <p>{{ data.content }}</p>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end" style="padding: 16px">
+  <button
+    mat-raised-button
+    [mat-dialog-close]="false"
+    style="margin-right: 16px"
+  >
+    {{ data.cancelText }}
+  </button>
+  <button mat-raised-button color="warn" [mat-dialog-close]="true">
+    {{ data.confirmText }}
+  </button>
+</mat-dialog-actions>
