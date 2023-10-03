@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { Hero } from '../core/models/hero.model';
 import { HeroService } from '../core/services/hero.service';
 import { Component, OnInit } from '@angular/core';
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './dashboard.component.html',
 })
 export class DashboardComponent implements OnInit {
-  constructor(private heroService: HeroService) {}
+  constructor(private heroService: HeroService, private router: Router) {}
 
   heroes: Hero[] = [];
 
@@ -21,5 +22,9 @@ export class DashboardComponent implements OnInit {
       error: (err) => console.error('Observer getAll got an ' + err),
       // complete: () => console.log('Complete...'),
     });
+  }
+
+  onSelected(hero: Hero): void {
+    this.router.navigate(['/heroes', hero.id]);
   }
 }

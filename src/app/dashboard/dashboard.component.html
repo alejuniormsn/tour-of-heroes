@@ -1,19 +1,22 @@
-<div>
-  <h1>Dashboard</h1>
-  <div
-    fxLayout="row"
-    fxLayoutAlign="space-between"
-    fxLayoutGap="16px"
-    fxLayout.xs="column"
-  >
-    <mat-card
-      *ngFor="let item of heroes"
-      routerLink="/heroes/{{ item.id }}"
-      style="cursor: pointer; padding: 16px; justify-content: center"
+<div fxLayout="column" fxLayoutGap="24px">
+  <div>
+    <h1>Dashboard</h1>
+    <div
+      fxLayout="row"
+      fxLayoutAlign="space-between"
+      fxLayoutGap="16px"
+      fxLayout.xs="column"
     >
-      <mat-card-header style="padding: 0">
-        <mat-card-title>{{ item.name }}</mat-card-title>
-      </mat-card-header>
-    </mat-card>
+      <mat-card
+        *ngFor="let item of heroes"
+        routerLink="/heroes/{{ item.id }}"
+        style="cursor: pointer; padding: 16px; justify-content: center"
+      >
+        <mat-card-header style="padding: 0">
+          <mat-card-title>{{ item.name }}</mat-card-title>
+        </mat-card-header>
+      </mat-card>
+    </div>
   </div>
+  <app-hero-search [label]="'Hero search'" (selected)="onSelected($event)" />
 </div>

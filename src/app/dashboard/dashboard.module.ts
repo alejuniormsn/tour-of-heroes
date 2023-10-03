@@ -4,6 +4,7 @@ import { MaterialModule } from '../material/material.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { CommonModule } from '@angular/common';
 import { DashboardRoutingModule } from './dashboard-routing.module';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   declarations: [DashboardComponent],
@@ -12,6 +13,7 @@ import { DashboardRoutingModule } from './dashboard-routing.module';
     MaterialModule,
     FlexLayoutModule,
     DashboardRoutingModule,
+    SharedModule,
   ],
 })
 export class DashboardModule {}
